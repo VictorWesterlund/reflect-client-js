@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"module": "amd",
+		"target": "ES6",
+		"rootDir": "./src",
+		"outFile": "./build/Reflect.js"
+	}
+}

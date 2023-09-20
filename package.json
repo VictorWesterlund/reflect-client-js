@@ -1,0 +1,8 @@
+{
+	"name": "reflect-client",
+	"version": "1.0.0",
+	"main": "build/Reflect.js",
+	"devDependencies": {
+		"typescript": "^5.2.2"
+	}
+}
