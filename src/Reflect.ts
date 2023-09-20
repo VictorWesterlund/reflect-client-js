@@ -1,4 +1,4 @@
-import { Method } from "./Method";
+import { Method } from "./Method.js";
 
 // Connect to a Reflect API instance over HTTP
 export default class Client {
