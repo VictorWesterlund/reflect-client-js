@@ -1,4 +1,7 @@
-import { Method } from "./Method";
+import { Method } from "./Method.js";
+
+// Export Method as importable directly from the Reflect.js ESM
+export { Method };
 
 // Connect to a Reflect API instance over HTTP
 export default class Client {
@@ -16,7 +19,12 @@ export default class Client {
 
 	// Set API key to use for all requests
 	private setApiKey(key: string): void {
-		this.headers["Authentication"] = `Bearer ${key}`;
+		this.headers["Authorization"] = `Bearer ${key}`;
+	}
+
+	// Get fully qualified URL to endpoint
+	private getEndpoint(endpoint: string): string {
+		return this.url + endpoint;
 	}
 
 	// Call a Reflect API endpoint with method and optional payload
@@ -32,6 +40,6 @@ export default class Client {
 		}
 
 		// Fetch and return Response object
-		return await fetch(endpoint, options);
+		return await fetch(this.getEndpoint(endpoint), options);
 	}
 }

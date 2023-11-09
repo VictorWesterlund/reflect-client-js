@@ -1,7 +1,16 @@
 {
 	"name": "reflect-client",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"main": "build/Reflect.js",
+	"type": "module",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./src/Reflect.ts",
+				"default": "./build/Reflect.js"
+			}
+		}
+	},
 	"devDependencies": {
 		"typescript": "^5.2.2"
 	}
