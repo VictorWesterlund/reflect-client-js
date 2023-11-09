@@ -19,7 +19,7 @@ export default class Client {
 
 	// Set API key to use for all requests
 	private setApiKey(key: string): void {
-		this.headers["Authentication"] = `Bearer ${key}`;
+		this.headers["Authorization"] = `Bearer ${key}`;
 	}
 
 	// Get fully qualified URL to endpoint
