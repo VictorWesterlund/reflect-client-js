@@ -18,9 +18,14 @@ export default class Client {
 		}
 	}
 
+	// Set request header
+	private setHeader(name, value): void {
+		return this.headers[name] = value;
+	}
+
 	// Set API key to use for all requests
 	private setApiKey(key: string): void {
-		this.headers["Authorization"] = `Bearer ${key}`;
+		return this.setHeader("Authorization", `Bearer ${key}`);
 	}
 
 	// Get fully qualified URL to endpoint
@@ -40,6 +45,7 @@ export default class Client {
 
 		// JSON stringify and append body to request if provided and is not a GET request
 		if (payload && method !== Method.GET) {
+			this.setHeader("Content-Type", "application/json");
 			options["body"] = JSON.stringify(payload);
 		}
 
