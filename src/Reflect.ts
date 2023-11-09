@@ -34,8 +34,8 @@ export default class Client {
 			headers: this.headers
 		}
 
-		// JSON stringify and append body to request if provided
-		if (payload) {
+		// JSON stringify and append body to request if provided and is not a GET request
+		if (payload && method !== Method.GET) {
 			options["body"] = JSON.stringify(payload);
 		}
 
