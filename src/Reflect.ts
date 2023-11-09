@@ -9,7 +9,8 @@ export default class Client {
 	private headers: object = {};
 
 	constructor(url: string, key: string|null = null) {
-		this.url = url;
+		// Append tailing slash if omitted from URL string
+		this.url = url.substring(url.length - 1) === "/" ? url : url + "/";
 
 		// Use API key with requests if defined
 		if (key) {
@@ -24,6 +25,9 @@ export default class Client {
 
 	// Get fully qualified URL to endpoint
 	private getEndpoint(endpoint: string): string {
+		// Remove leading slash if provided for pathname. It's already set on the domain name
+		endpoint = endpoint.substring(0, 1) !== "/" ? endpoint : endpoint.substring(1, endpoint.length);
+		
 		return this.url + endpoint;
 	}
 
