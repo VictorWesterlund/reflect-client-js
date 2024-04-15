@@ -5,11 +5,12 @@ Make requests to an API built using the [Reflect API](https://github.com/VictorW
 ---
 
 ```js
-import { Client, Method } from "./reflect-client/Reflect.js
+import { default as Client } from "./reflect-client/Reflect.js";
 
-const api = new Client("<api_url>", "<optional_api_key");
-// Make an API request with Client.call() which returns a normal JavaScript Response object
-api.call("my/endpoint", Method.GET); // obj<Respone>
+const api = new Client("https://api.example.com", "myApiKey");
+
+// GET: https://api.example.com/my/endpoint?foo=bar
+api.call("my/endpoint").params({foo: bar}).get(); // Returns: Promise<Response>
 ```
 
 ## Supported browsers/environments:
